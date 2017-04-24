@@ -8,33 +8,47 @@
 	<link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
 	<!--jQuery/Javascript Links-->
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<script src='assets/javascript/game.js'></script>
+	<script src='assets/javascript/engine.js'></script>
 </header>
 <body>
 	<div class = 'jumbotron text-center'>
+	<!--Find background image for banner, or style at least-->
 		<h1>Where Does My Taxes Go?</h1>
 		<h2>A Look at Where You Tax Dollars Go</h2>
 		<!--I'm a Programmer Not a Writer-->
 	</div>
 	<div class = 'container container-fluid'>
-		<div class = 'row text-center'>
+		<div class = 'row'>
 			<div class = 'col-sm-6 col-sm-offset-3'>
-				<h3><u>What this is And How To Us It</u></h3>
+				<h3 class = 'text-center'><u>What this is And How To Us It</u></h3>
 				<p>This tool is simple.  You input how much you made in 2016, what if any property tax you paid, and estimated sales tax.  Using this data and publicly available government data, we calculate exactly how much money you paid to various government programs and agencies.  If you still unsure what any of this is, just try it out for yourself and see what you get!</p>
 			</div>
 		</div>
 		<div class = 'row'>
 			<div class = 'col-sm-6 col-sm-offset-3'>
 				<form>
+					<!--Radio buttons for filing status, single-married etc-->
+					<!--Find better type for income/financial, maybe with a .00-->
 					<div class = 'form-group'>
 						<label for="incomeInput">Income:</label>
-    					<input type="number" class="form-control" id="incomeInput" placeholder="Income">
+	    				<input type="number" class="form-control" id="incomeInput" placeholder="Income" step='50'>
 					</div>
 					<div class = 'form-group'>
 						<label for="deductionsInput">Deductions:</label>
-    					<input type="number" class="form-control" id="deductionsInput" placeholder="Income">
+    					<input type="number" class="form-control" id="deductionsInput" placeholder="Deductions" step='50'>
 					</div>
+					<!--Button 'Get Results' to enter-->
+					<button type="button" class="btn btn-success" id='runResults'>Get Results!</button>
 				</form>
+				<p id = 'errorMessage'></p>
+			</div>
+		</div>
+		<div class = 'row results-visibility'>
+			<div class = 'col-sm-6 col-sm-offset-3'>
+				<h1><u>Results:</u></h1>
+				<p id = 'userResults'>
+				Based on your entered income and deductions, blah blah blah.
+				</p>
 			</div>
 		</div>
 	</div>
