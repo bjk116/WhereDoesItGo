@@ -28,6 +28,12 @@
 			<div class = 'col-sm-6 col-sm-offset-3'>
 				<form>
 					<!--Radio buttons for filing status, single-married etc-->
+					<div class = 'form-group'>
+						<!--Fix radio buttons to look better-->
+						<input type = 'radio' name = 'filingStatus' value = 'single' class = 'radioBtns'>Single
+						<input type = 'radio' name = 'filingStatus' value = 'married' class = 'radioBtns'>Married
+						<input type = 'radio' name = 'filingStatus' value = 'headOfHousehold' class = 'radioBtns'>Head of Household
+					</div>
 					<!--Find better type for income/financial, maybe with a .00-->
 					<div class = 'form-group'>
 						<label for="incomeInput">Income:</label>
@@ -38,12 +44,14 @@
     					<input type="number" class="form-control" id="deductionsInput" placeholder="Deductions" step='50'>
 					</div>
 					<!--Button 'Get Results' to enter-->
-					<button type="button" class="btn btn-success" id='runResults'>Get Results!</button>
+					<div class = 'form-group'>
+						<button type="button" class="btn btn-success" id = 'runResults'>Get Results!</button>
+					</div>
 				</form>
 				<p id = 'errorMessage'></p>
 			</div>
 		</div>
-		<div class = 'row results-visibility'>
+		<div class = 'row results-visibility' opacity=0>
 			<div class = 'col-sm-6 col-sm-offset-3'>
 				<h1><u>Results:</u></h1>
 				<p id = 'userResults'>
