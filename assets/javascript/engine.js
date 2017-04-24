@@ -1,5 +1,12 @@
-//get income
-	//if not number, give error alert
+var exampleBreakdown = {
+	'Defense':.60;
+	'Education':.20;
+	'Welfase':.10;
+}
+
+var realUSBreakdow = {
+	//
+}
 
 function runResults(){
 	console.log('Woo, running!');
@@ -69,4 +76,18 @@ function calculateTax(income, filingStatus) {
 			}
 			break;
 	}
+}
+
+function checkInput(input){
+	console.log(typeof(input));
+	if (typeof(input)==='number') {
+		return true; //input in form is acceptable
+	} else {
+		return false; //input in form is string, etc.
+	}
+}
+
+function returnTaxBreakdown(taxPaid, departmentBreakdown) {
+	//basically loop through department breakdown, spit out department name + taxPaid * department%
+	//return 2-D loop [ [department1, $320], [department2, $423], etc ] 
 }
