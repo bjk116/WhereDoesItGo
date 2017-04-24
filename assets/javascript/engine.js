@@ -101,14 +101,14 @@ function errorCheck(status, inc, ded) {
 		console.log('income is not a number');
 		$('#errorMessage').html('Please enter a number for income');
 		return false;	
-	} else if (income <= 0) {
+	} else if (income < 0) {
 		$('#errorMessage').html('Please enter a POSITIVE number for income');
 		return false;
 	} else if (deductions.length==0) {
 		console.log('deductions is not a number');
 		$('#errorMessage').html('Please enter a number for deductions');
 		return false;	
-	} else if (deductions <= 0) {
+	} else if (deductions < 0) {
 		$('#errorMessage').html('Please enter deductions as a POSITIVE number');
 		return false;	
 	} else {
