@@ -51,12 +51,36 @@
 				<p id = 'errorMessage'></p>
 			</div>
 		</div>
-		<div class = 'row results-visibility' opacity=0>
+		<div class = 'row results-visibility'>
 			<div class = 'col-sm-6 col-sm-offset-3'>
 				<h1><u>Results:</u></h1>
-				<p id = 'userResults'>
-				Based on your entered income and deductions, blah blah blah.
-				</p>
+				<table class = 'table table-striped'>
+					<thead>
+						<th>Category</th>
+						<th class = 'text-right'>Amount</th>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope = 'row'>Income</th>
+							<td id='incomeResult' class = 'basicResultData'></td>
+						</tr>
+						<tr>
+							<th scope = 'row'>Deductions</th>
+							<td id='deductionsResult' class = 'basicResultData'></td>
+						</tr>
+						<tr>
+							<th scope = 'row'>Taxable Income</th>
+							<td id='taxableResult' class = 'basicResultData'></td>
+						</tr>
+						<tr>
+							<th scope = 'row'>Taxes</th>
+							<td id='incomeTaxesResult' class = 'basicResultData'></td>
+						</tr>
+						<tr>
+							<th scope = 'row'>Tax Rate</th>
+							<td id='taxPResult' class = 'basicResultData'></td>
+						</tr>
+					</tbody>
 			</div>
 		</div>
 	</div>

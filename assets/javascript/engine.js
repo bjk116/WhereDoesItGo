@@ -1,5 +1,7 @@
 var income=0, deductions=0, filingStatusSelected='';
 var incomeTax;
+var incomeString;
+var deductionString;
 
 var exampleBreakdown = {
 	'Defense':.60,
@@ -122,20 +124,55 @@ function runTheNumbers() {
 	if (errorCheck(filingStatusSelected, income, deductions)==false) {
 		//error Check has error messages built in, no need to do anything here
 	} else {
+		var taxable;
+		var taxRate;
 		//everything entered correctly, filing status income deductions
 		//turn income/deductions into numbers
 		income=parseFloat(income);
 		deductions=parseFloat(deductions);
+		taxable=income-deductions;
 		//calculate actual tax paid
 		incomeTax=calculateTax(income-deductions, filingStatusSelected);
-		console.log(incomeTax);
-		//present basic findings
-		presentResults(income, deductions, incomeTax);
+		//calculate income Tax %
+		taxRate=incomeTax/(income-deductions);
+		console.log(taxRate);
+		taxRate=taxRate*100;
+		console.log(taxRate);
+		taxRate=taxRate.toFixed(2);
+		console.log(taxRate);
+		taxRate='%'+taxRate;
+		console.log(taxRate);
+		//prepare income, deductions, taxes for presentation
+		incomeString='$'+formatMoney(income);
+		deductionString=formatMoney(deductions);
+		taxable=formatMoney(taxable);
+		incomeTaxString='$'+formatMoney(incomeTax);
+		//fill in ID's
+		$('#incomeResult').html(incomeString);
+		$('#deductionsResult').html(deductionString);
+		$('#taxableResult').html(taxable);
+		$('#incomeTaxesResult').html(incomeTaxString);
+		$('#taxPResult').html(taxRate);
+		//present basic findings, turn on visiblity
+		presentResults();
 	}
 }
 
-function presentResults(inc, ded, incTax) {
-	
+//Courtesy of http://stackoverflow.com/questions/149055/how-can-i-format-numbers-as-money-in-javascript
+function formatMoney(n, c, d, t){
+var n = n, 
+    c = isNaN(c = Math.abs(c)) ? 2 : c, 
+    d = d == undefined ? "." : d, 
+    t = t == undefined ? "," : t, 
+    s = n < 0 ? "-" : "", 
+    i = String(parseInt(n = Math.abs(Number(n) || 0).toFixed(c))), 
+    j = (j = i.length) > 3 ? j % 3 : 0;
+   return s + (j ? i.substr(0, j) + t : "") + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + t) + (c ? d + Math.abs(n - i).toFixed(c).slice(2) : "");
+ };
+
+//shows Results page
+function presentResults() {
+	$('.results-visibility').css('opacity','1');
 }
 
 $(document).ready( function() {

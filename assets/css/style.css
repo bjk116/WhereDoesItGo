@@ -1,3 +1,15 @@
+.results-visibility {
+	opacity: 0;
+}
+
 .radioBtns {
 	width:20%;
+}
+
+.basicResultData {
+	text-align:right;
+}
+
+.rightText{
+	text-align:right;
 }
